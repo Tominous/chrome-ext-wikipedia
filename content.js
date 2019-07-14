@@ -84,7 +84,7 @@ function stripHtmlTags(html) {
 
 function addSnippet(linkElmt, entry) {
   $.getJSON(searchEndpoint + entry, function (data, status) {
-    // console.log(status, data);
+     console.log(status, data);
     if (status == 'success' && data.query.search.length > 0 && !linkElmt['data-excerpt']) {
       linkElmt['data-excerpt'] = stripHtmlTags(data.query.search[0].snippet);
       linkElmt.title += ' : ' + linkElmt['data-excerpt'];
@@ -103,9 +103,9 @@ chrome.storage.local.get('snippet', function(items) {
 	if ($(this).hasClass('mw-redirect')) {
 	  // redirecting entities
 	  $.getJSON(redirectEndpoint + this.title, function (data, status) {
-            // console.log('redirect', status, data);
+             console.log('redirect', status, data);
             if (status == 'success' && data.query.redirects.length > 0) {
-	      // console.log(data.query.redirects[0].to);
+	       console.log(data.query.redirects[0].to);
 	      addSnippet(linkElmt, data.query.redirects[0].to);
             }
 	  });  
