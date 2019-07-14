@@ -24,8 +24,8 @@ chrome.runtime.onInstalled.addListener(function (details) {
     notification.show();
     
     // minor update message
-    // setTimeout(function () {
-    //   notification.cancel();
-    // }, 5000);
+     setTimeout(function () {
+       notification.cancel();
+     }, 5000);
   }
 });
